@@ -44,6 +44,7 @@ def handle_uploaded_file(content, typ):
         for chunk in content.chunks():
             md5.update(chunk)
     md5sum = md5.hexdigest()
+    print('Uploaded Dir: ', settings.UPLD_DIR)
     anal_dir = os.path.join(settings.UPLD_DIR, md5sum + '/')
     if not os.path.exists(anal_dir):
         os.makedirs(anal_dir)
@@ -132,6 +133,7 @@ class Scanning(object):
         }
         add_to_recent_scan(data)
         logger.info('Performing Static Analysis of iOS IPA')
+        print(data)
         return data
 
     def scan_appx(self):

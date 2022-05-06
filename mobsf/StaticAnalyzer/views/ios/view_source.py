@@ -70,6 +70,7 @@ def run(request, api=False):
         if mode == 'ipa':
             src1 = base / 'payload'
             src2 = base / 'Payload'
+            print(src1, src2)
             if src1.exists():
                 src = src1
             elif src2.exists():
